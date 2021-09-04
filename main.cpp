@@ -133,12 +133,6 @@ bool IsGameInFocus(){
     };
 
     if(Str == L"LaunchUnrealUWindowsClient"){
-        Str = {Buffer,static_cast<std::size_t>(GetWindowTextW(Window,Buffer,BufferSize))};
-
-        if(Str != L"Dishonored"){
-            return false;
-        }
-    }else if(Str != L"Dishonored 2" && Str != L"Dishonored: Death of the Outsider"){
         return false;
     }
 
@@ -299,7 +293,7 @@ bool IsKeyboardKey(DWORD KeyCode){
 
 int main(int argc,char** argv){
     try {
-        auto ConfigFilename = "Dish2Macro.ini";
+        auto ConfigFilename = "MEMacro.ini";
 
         if(argc >= 2){
             ConfigFilename = argv[1];
