@@ -1,19 +1,10 @@
-A macro for Dishonored 2 (and since then also Dishonored: Death of the Outsider and Dishonored 1),
-that allows you to bunnyhop without a freescroll mouse.
+# Mirror's Edge Macro
+A macro for Mirror's Edge that emulates freescroll. Adapted from Some1Lse's Dish2Macro.
 
-To use:
- 1. Run the program.
- 2. Bind `wheel down` to jump in game. (You can still keep the default spacebar bind.)
- 3. Hold `space`.
+# Download & Usage
+Download the [current release](https://github.com/Ph03n1xDE/MEMacro/releases/). Extract the .zip file and run MEMacro.exe.
+ 
+# Key Bindings
+You can customize which key should be bound to scroll up and to scroll down by changing the key codes in MEMacro.ini. A list of key codes can be found [here](https://docs.microsoft.com/en-us/windows/win32/inputdev/virtual-key-codes).
 
-# Dish2Macro.ini
-If you don't like using `space` you can change it in `Dish2Macro.ini` to a different key.
-
-You can also spam `wheel up` instead, or set up separate keys for each scroll wheel direction.
-
-See that file for an information on how to configure the macro.
-
-# Is this allowed in speedruns?
-Yes.
-
-Specifically any of the Dishonored games allow it.
+See that file for more information.
