@@ -28,7 +28,7 @@ namespace
     DWORD UpKeyCode = 0;
 
     template <typename T>
-    inline auto ParseInt(std::string_view Value, T *r, const char *Message)
+    inline auto ParseInt(std::string_view Value, T* r, const char* Message)
     {
         auto Begin = Value.data();
         auto End = Begin + Value.size();
@@ -136,7 +136,7 @@ namespace
     bool isRunning()
     {
         HWND hwnd;
-        hwnd = FindWindow("LaunchUnrealUWindowsClient", NULL);
+        hwnd = FindWindow("UnrealUnrealWWindowsViewportWindow", NULL);
         if (hwnd != 0) {
             return true;
         }
@@ -158,9 +158,9 @@ namespace
 
         std::wstring_view Str = {
             Buffer,
-            static_cast<std::size_t>(GetClassNameW(Window, Buffer, BufferSize))};
+            static_cast<std::size_t>(GetClassNameW(Window, Buffer, BufferSize)) };
 
-        if (Str != L"LaunchUnrealUWindowsClient")
+        if (Str != L"UnrealUnrealWWindowsViewportWindow")
         {
             return false;
         }
@@ -265,7 +265,7 @@ namespace
         }
         case WM_XBUTTONUP:
         {
-            auto &Info = *reinterpret_cast<MSLLHOOKSTRUCT *>(LParam);
+            auto& Info = *reinterpret_cast<MSLLHOOKSTRUCT*>(LParam);
             KeyCode = VK_XBUTTON1 + HIWORD(Info.mouseData) - XBUTTON1;
 
             break;
@@ -289,7 +289,7 @@ namespace
 
         assert(Code == HC_ACTION);
 
-        auto &Info = *reinterpret_cast<KBDLLHOOKSTRUCT *>(LParam);
+        auto& Info = *reinterpret_cast<KBDLLHOOKSTRUCT*>(LParam);
 
         auto IsDown = (WParam == WM_KEYDOWN || WParam == WM_SYSKEYDOWN);
 
@@ -342,7 +342,7 @@ namespace
     bool IsMouseButton(DWORD KeyCode)
     {
         return (VK_LBUTTON <= KeyCode && KeyCode <= VK_RBUTTON) ||
-               (VK_MBUTTON <= KeyCode && KeyCode <= VK_XBUTTON2);
+            (VK_MBUTTON <= KeyCode && KeyCode <= VK_XBUTTON2);
     }
 
     bool IsKeyboardKey(DWORD KeyCode)
@@ -352,11 +352,11 @@ namespace
 
 }
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     try
     {
-        auto ConfigFilename = "MEMacro.ini";
+        auto ConfigFilename = "RTNPMacro.ini";
 
         if (argc >= 2)
         {
@@ -400,7 +400,7 @@ int main(int argc, char **argv)
             }
         }
     }
-    catch (std::exception &e)
+    catch (std::exception& e)
     {
         if (MouseHook)
         {
