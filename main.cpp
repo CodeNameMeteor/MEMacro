@@ -26,6 +26,9 @@ namespace
 
     DWORD DownKeyCode = 0;
     DWORD UpKeyCode = 0;
+    DWORD ToggleKeyCode = 0;
+
+    bool Toggled = false;
 
     template <typename T>
     inline auto ParseInt(std::string_view Value, T* r, const char* Message)
@@ -110,6 +113,23 @@ namespace
                         Ini.Error("Invalid value for scroll down key bind.");
                     }
                 }
+                else if (Token.Key == "togglebind")
+                {
+                    if (ToggleKeyCode != 0)
+                    {
+                        Ini.Error("toggle key bind specified twice.");
+                    }
+
+                    if (ParseInt(Token.Value, &ToggleKeyCode, Ini.Name().c_str()) != Token.Value.end())
+                    {
+                        Ini.Error("Invalid value for toggle key bind.");
+                    }
+
+                    if (ToggleKeyCode == 0 || ToggleKeyCode > 0xFE)
+                    {
+                        Ini.Error("Invalid value for toggle key bind.");
+                    }
+                }
                 else
                 {
                     Ini.Error("Invalid key/value pair.");
@@ -191,6 +211,11 @@ namespace
             else if (KeyCode == UpKeyCode)
             {
                 Mask = SpamUpBit;
+            }
+            else if (KeyCode == ToggleKeyCode)
+            {
+                Toggled = !Toggled;
+                Sleep(500);
             }
         }
 
@@ -324,7 +349,7 @@ namespace
         {
             auto WheelDelta = GetWheelDelta(SpamFlags);
 
-            if (WheelDelta != 0)
+            if (WheelDelta != 0 && !Toggled)
             {
                 INPUT Input = {};
                 Input.type = INPUT_MOUSE;
