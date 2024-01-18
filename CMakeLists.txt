@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.12.0)
 project(RTNPMacro VERSION 2.0.0 LANGUAGES CXX)
 
-add_executable(RTNPMacro main.cpp)
+add_executable(RTNPMacro 
+    main.cpp
+    ini.h
+    ini.cpp
+)
 
 target_compile_features(RTNPMacro PRIVATE cxx_std_17)
 
