@@ -130,6 +130,19 @@ namespace
                         Ini.Error("Invalid value for toggle key bind.");
                     }
                 }
+                else if (Token.Key == "interval")
+                {
+
+                    if (ParseInt(Token.Value, &Interval, Ini.Name().c_str()) != Token.Value.end())
+                    {
+                        Ini.Error("Invalid value for interval.");
+                    }
+
+                    if (Interval < 2 || ToggleKeyCode > 0xFE)
+                    {
+                        Ini.Error("Invalid value for interval.");
+                    }
+                }
                 else
                 {
                     Ini.Error("Invalid key/value pair.");
