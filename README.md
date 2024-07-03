@@ -1,5 +1,5 @@
-# Unreal 1 Return To Na Pali Macro
-A macro for Return To Na Pali Macro that emulates freescroll. Adapted from Some1Lse's Dish2Macro and Phoenix's MEMacro.
+# Unreal 1 Macro
+A macro for Unreal that emulates freescroll. Adapted from Some1Lse's Dish2Macro and Phoenix's MEMacro.
 
 # Download & Usage
 Download the [current release](https://github.com/CodeNameMeteor/RTNPMacro/releases/). Extract the .zip file and run RTNPMacro.exe. Make sure the game is running before you run the Macro.
